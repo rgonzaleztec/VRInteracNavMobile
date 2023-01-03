@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactable
+  - Sheep
+  - Cow
+  - Chicken
+  - Pig
+  - Teleporting
   layers:
   - Default
   - TransparentFX

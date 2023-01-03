@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class spawAnimals : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,6 +11,8 @@ public class spawAnimals : MonoBehaviour
     public int _numPajaros;
     public GameObject _miGato;
     public GameObject _miPajaro;
+    bool _isGatoNuevo = false;
+    bool _isPajaroNuevo = false;
     void Start()
     {
         _numGatos = 1;
@@ -21,24 +24,35 @@ public class spawAnimals : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_numGatos < 6)
+        if (_numGatos < 6 && !_isGatoNuevo)
             StartCoroutine(NuevoGato());
-        if (_numPajaros < 6)
+        if (_numPajaros < 6 && !_isPajaroNuevo)
             StartCoroutine(NuevoPajaro());
 
     }
 
     IEnumerator NuevoGato()
     {
-        Instantiate(_miGato, new Vector3(0, 1, 4),Quaternion.identity);
+        _isGatoNuevo=true;
+        Instantiate(_miGato, new Vector3(RandomPosicion(-21, 20), 2.5f, RandomPosicion(-15, 15)),Quaternion.identity);
         _numGatos++;
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(10);
+        _isGatoNuevo = false;
     }
 
     IEnumerator NuevoPajaro()
     {
-        Instantiate(_miPajaro, new Vector3(3, 2, 5), Quaternion.identity);
+        _isPajaroNuevo = true;
+        Instantiate(_miPajaro, new Vector3(RandomPosicion(-21,20), 3, RandomPosicion(-15, 15)), Quaternion.identity);
         _numPajaros++;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
+        _isPajaroNuevo = false;
+    }
+
+    float RandomPosicion(float min, float max)
+    {
+        Random.InitState(1345);
+        float pos = Random.Range(min, max);
+        return pos;
     }
 }
