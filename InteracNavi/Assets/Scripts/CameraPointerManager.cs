@@ -7,10 +7,7 @@ public class CameraPointerManager : MonoBehaviour
     private GameObject _gazedAtObject = null;
 
     [SerializeField] private GameObject pointer;
-    private float scaleSize = 0.025f;
-    [Range(0, 1)]
-    [SerializeField] float disPointerObject = 0.95f;
-    [SerializeField] float maxDistancePointer = 4.5f;
+  
     private readonly string interactableTag = "Interactable";
     private readonly string teleportTag = "Teleporting";
 
