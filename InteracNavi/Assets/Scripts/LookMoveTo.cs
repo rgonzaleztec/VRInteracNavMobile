@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class LookMoveTo : MonoBehaviour
 {
-    float speed = 3.0f;
+    public float speed = 5.0f;
 
-    public float lookangledown = 25.0f;
+    public float lookangledown = 15.0f;
 
     public Transform vrPlayer;
 

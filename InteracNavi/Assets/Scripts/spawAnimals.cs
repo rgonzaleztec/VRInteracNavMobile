@@ -52,7 +52,6 @@ public class spawAnimals : MonoBehaviour
     float RandomPosicion(float min, float max)
     {
         float pos = Random.Range(min, max);
-
         return pos;
         
     }
