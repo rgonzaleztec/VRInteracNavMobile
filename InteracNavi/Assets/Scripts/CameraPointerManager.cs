@@ -10,6 +10,8 @@ public class CameraPointerManager : MonoBehaviour
   
     private readonly string interactableTag = "Interactable";
     private readonly string teleportTag = "Teleporting";
+    private readonly string grabTag = "Grab";
+    private readonly string ungrabTag = "UnGrab";
 
 
 
@@ -25,6 +27,15 @@ public class CameraPointerManager : MonoBehaviour
             _gazedAtObject?.SendMessage("OnPointerClick", null, SendMessageOptions.DontRequireReceiver);
         if (_gazedAtObject.CompareTag(teleportTag))
             _gazedAtObject?.SendMessage("OnTeleportClick", null, SendMessageOptions.DontRequireReceiver);
+
+        // Esta funcionan va a tomar un objeto con el Gaze y lo va a atachar a la mano indicada
+        if (_gazedAtObject.CompareTag(grabTag))
+            _gazedAtObject?.SendMessage("OnGrabRayInteractionAttach", null, SendMessageOptions.DontRequireReceiver);
+        
+        // Esta funcionan va a tomar un objeto y lo va a des-atachar sobre la mesa colisionada
+        if (_gazedAtObject.CompareTag(ungrabTag))
+            _gazedAtObject?.SendMessage("OnGrabRayInteractionDeAttach", null, SendMessageOptions.DontRequireReceiver);
+
     }
 
 
@@ -36,6 +47,7 @@ public class CameraPointerManager : MonoBehaviour
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
         // at.
         RaycastHit hit;
+        
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance))
         {
             // GameObject detected in front of the camera.
@@ -47,6 +59,10 @@ public class CameraPointerManager : MonoBehaviour
                 if (hit.transform.CompareTag(interactableTag))
                     GazeManager.Instance.StartGazeSelection();
                 if (hit.transform.CompareTag(teleportTag))
+                    GazeManager.Instance.StartGazeSelection();
+                if (hit.transform.CompareTag(grabTag))
+                    GazeManager.Instance.StartGazeSelection();
+                if (hit.transform.CompareTag(ungrabTag))
                     GazeManager.Instance.StartGazeSelection();
             }
         }
