@@ -292,7 +292,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &170659101
@@ -666,7 +666,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287988318}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -8.23, y: 0.511, z: -5.39}
+  m_LocalPosition: {x: -8.23, y: 0.75, z: -5.39}
   m_LocalScale: {x: 0.57960093, y: 0.83463836, z: 4.3273}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -686,7 +686,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1462,10 +1462,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2038829281013712889, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_UseRelativeTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160715333265412288, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5787865055728915246, guid: 80d5c27cd0bf4c54ba75647138687c2c,
         type: 3}
       propertyPath: m_Name
       value: PlayerVRwalkRay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207028180383495671, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207028180383495671, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207028180383495671, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207028180383495671, guid: 80d5c27cd0bf4c54ba75647138687c2c,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 7697984841889939378, guid: 80d5c27cd0bf4c54ba75647138687c2c,
         type: 3}
@@ -1480,7 +1510,7 @@ PrefabInstance:
     - target: {fileID: 7697984841889939378, guid: 80d5c27cd0bf4c54ba75647138687c2c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7697984841889939378, guid: 80d5c27cd0bf4c54ba75647138687c2c,
         type: 3}
